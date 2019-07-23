@@ -20,8 +20,9 @@
                 <input type="text" class="form-control" id="modalModeloAuto" placeholder="Ingrese Modelo">
                 <label for="modalPlacaAuto">Placa</label>
                 <input type="text" class="form-control" id="modalPlacaAuto" placeholder="Ingrese Placa">
-                <label for="modalColorAuto">Color</label>
-                <input type="text" class="form-control" id="modalColorAuto" placeholder="Ingrese Color">
+                <label for="colorAuto">Elija un color</label>
+                <input type="color" name="micolor" id="modalmicolor" value="#f00"/>
+                <br>
                 <label for="modalPrecioAuto">Precio</label>
                 <input type="number" class="form-control" id="modalPrecioAuto" placeholder="Ingrese Precio">
             </div>

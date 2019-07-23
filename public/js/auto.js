@@ -2,7 +2,6 @@ var idAuto;
 $(document).ready(function () {
     cargarAuto();
     $('#guardarAuto').click(function(e){
-        console.log($('#micolor').val());
         registrarAuto();
     });
     $(document).on('click', '.modificar', function(){
@@ -12,7 +11,7 @@ $(document).ready(function () {
             $('#modalMarca').val(item.marca);
             $('#modalModeloAuto').val(item.modelo);
             $('#modalPlacaAuto').val(item.placa);
-            $('#modalColorAuto').val(item.color);
+            $('#modalmicolor').val(item.color);
             $('#modalPrecioAuto').val(item.precio);
          });
     });
@@ -93,7 +92,7 @@ function modificarAuto(id) {
         marca: $('#modalMarca').val(),
         modelo: $('#modalModeloAuto').val(),
         placa: $('#modalPlacaAuto').val(),
-        color: $('#modalColorAuto').val(),
+        color: $('#modalmicolor').val(),
         precio: $('#modalPrecioAuto').val()
     }
     $.ajaxSetup({
@@ -109,7 +108,7 @@ function modificarAuto(id) {
         success: function(value) {
             console.log("done");
             $.get('marca/'+value.marca, function(item){
-                fila = '<tr id="auto'+value.id+'"><td>'+c+'</td><td>'+item.descripcion+'</td><td>'+value.modelo+'</td><td>'+value.placa+'</td><td>'+value.color+'</td><td>'+value.precio+'</td><td><button class="btn btn-warning modificar" value="'+value.id+'">Modificar</button></td><td><button class="btn btn-danger" onclick="eliminarAuto('+value.id+')">Eliminar</button></td></tr>';
+                fila = '<tr id="auto'+value.id+'"><td>'+c+'</td><td>'+item.descripcion+'</td><td>'+value.modelo+'</td><td>'+value.placa+'</td><td bgcolor=#'+value.color+'></td><td>'+value.precio+'</td><td><button class="btn btn-warning modificar" value="'+value.id+'">Modificar</button></td><td><button class="btn btn-danger" onclick="eliminarAuto('+value.id+')">Eliminar</button></td></tr>';
                 $('#auto'+value.id).replaceWith(fila);
                 $('#modalModificarAuto').modal('hide');        
                 c++;
